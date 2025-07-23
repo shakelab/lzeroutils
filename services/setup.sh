@@ -1,17 +1,19 @@
-# Copia il file nella directory di systemd
+#!/bin/bash
+
+# Copy the service file to the systemd directory
 sudo cp lzeroserver.service /etc/systemd/system/
 
-# Ricarica systemd per includere la nuova unit
+# Reload systemd to recognize the new unit
 sudo systemctl daemon-reload
 
-# Abilita avvio automatico al boot
+# Enable automatic start at boot
 sudo systemctl enable lzeroserver
 
-# Avvia il servizio
+# Start the service
 sudo systemctl start lzeroserver
 
-# Controlla status
+# Check service status
 sudo systemctl status lzeroserver
 
-# Log in tempo reale
+# View real-time logs
 journalctl -u lzeroserver -f

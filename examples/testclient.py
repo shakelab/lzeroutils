@@ -2,9 +2,6 @@
 # -*- coding: utf-8 -*-
 """
 Test script for LZEROClient to request POS data from LZEROServer.
-
-Author: Valerio Poggi
-Date: 2025-07-07
 """
 
 from lzeroutils import LZEROClient, convert_wgs_to_utm
