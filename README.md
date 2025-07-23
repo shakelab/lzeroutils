@@ -14,30 +14,37 @@ It includes:
 
 This toolkit is designed for integration into rapid-response seismic monitoring frameworks, but can be adapted for any distributed GNSS data acquisition setup.
 
+---
+
 ## Installation
 
-Clone the repository:
+### 🔹 Install from GitHub (standard mode)
 
+```bash
+pip install git+https://github.com/your-org/lzeroutils.git
 ```
+
+### 🔹 Install from a local copy
+
+Clone the repository first:
+
+```bash
 git clone https://github.com/your-org/lzeroutils.git
 cd lzeroutils
+pip install .
 ```
 
-Install dependencies (only `pyproj` is required):
+### 🔹 Developer mode (editable install)
 
-```
-pip install pyproj
+To make local modifications without reinstalling:
+
+```bash
+pip install -e .
 ```
 
-Optionally, install the server as a systemd service (Linux only):
+This mode is useful during development, as changes to the source files will take effect immediately.
 
-```
-cd services
-sudo cp lzeroserver.service /etc/systemd/system/
-sudo systemctl daemon-reload
-sudo systemctl enable lzeroserver
-sudo systemctl start lzeroserver
-```
+---
 
 ## Usage
 
@@ -71,6 +78,36 @@ Each stream is a dictionary with:
 - `starttime` (ISO string)
 - `delta` (sampling interval in seconds)
 - `x_data`, `y_data`, `z_data` (displacement values in meters)
+
+---
+
+## Running as a system service
+
+For Linux-based deployments, the server can be installed as a `systemd` service.
+
+### Step-by-step instructions:
+
+```bash
+cd services
+sudo cp lzeroserver.service /etc/systemd/system/
+sudo systemctl daemon-reload
+sudo systemctl enable lzeroserver
+sudo systemctl start lzeroserver
+```
+
+To check the status:
+
+```bash
+sudo systemctl status lzeroserver
+```
+
+To view logs:
+
+```bash
+journalctl -u lzeroserver -f
+```
+
+---
 
 ## License
 
