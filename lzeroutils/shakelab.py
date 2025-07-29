@@ -75,19 +75,19 @@ class LZEROStreamClient:
                 data=chunk['x_data'],
                 delta=chunk['delta'],
                 time=chunk['starttime'],
-                sid=f'OX.{station}..LGE'
+                sid=f'.{station}..LGE'
             ))
             sc.append(Record(
                 data=chunk['y_data'],
                 delta=chunk['delta'],
                 time=chunk['starttime'],
-                sid=f'OX.{station}..LGN'
+                sid=f'.{station}..LGN'
             ))
             sc.append(Record(
                 data=chunk['z_data'],
                 delta=chunk['delta'],
                 time=chunk['starttime'],
-                sid=f'OX.{station}..LGU'
+                sid=f'.{station}..LGU'
             ))
 
         return sc

@@ -17,7 +17,7 @@ import sys
 from lzeroutils import LZEROServer
 
 # Constants
-ROOT = '/mnt/EXTDISK/data/TMPNETS/2024.CAMPIFLEGREI'
+ROOT = './'
 PORT = 5000
 
 server = None
